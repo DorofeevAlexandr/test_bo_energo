@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class='row'>
+    <div class='col-12'>
+
+        <form action="{{ url_for('test_1.equation') }}" method="post">
+            {{ form.csrf_token }}    
+            <table>
+                <tr>
+                    <td>
+                        {{ form.koef_a }}
+                    </td>
+                    <td>
+                        <p2> * x<sup> <small>2</small></sup> + </p2>
+                    </td>
+                    <td>
+                        {{ form.koef_b }}
+                    </td>
+                    <td>
+                        <p2> * x + </p2>
+                    </td>
+                    <td>
+                        {{ form.koef_c }}
+                    </td>
+                    <td>
+                        <p2> = 0 </p2>
+                    </td>
+                    <td>{{ form.submit }}</td>
+                </tr>
+            </table>
+            <h3> Ответ: </h3>
+            <p>{{  answer  }}</p>
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

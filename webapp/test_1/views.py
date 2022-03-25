@@ -14,7 +14,7 @@ def equation():
                                   koef_b=form.koef_b.data,
                                   koef_c=form.koef_c.data)
         db.session.add(write_koefs)
-        if Koeficients.query.count() > 1 :
+        if Koeficients.query.count() > 1:
             first_koefs = Koeficients.query.order_by(Koeficients.id.asc()).first()
             db.session.delete(first_koefs)
         db.session.commit()

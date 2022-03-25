@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class='row'>
+    <div class='col-12'>
+
+        <form action="{{ url_for('test_2.prediction') }}" method="post">
+            {{ form.csrf_token }}    
+            <table>
+                <tr>
+                    <td>
+                        <p2> Введите номер предмета </p2>
+                    </td>
+                    <td>
+                        {{ form.number }}
+                    </td>
+                    <td>{{ form.submit }}</td>
+                </tr>
+            </table>
+            
+            <h3> Ответ: {{  answer  }} </h3>
+            <p></p>
+
+            <table border="2">
+                {% for i in range(0,10) %}
+                <tr>
+                    {% for j in range(1,11) %}
+                    <td  {% if list_col_obj[10*i + j -1]['selected' ] %} style="background-color: Gray" {% endif %}>
+                        <font color={{  list_col_obj[10*i + j -1]['obj_color'] }} >
+                        |{{  list_col_obj[10*i + j -1]['number']  }}| 
+                        </font>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}
